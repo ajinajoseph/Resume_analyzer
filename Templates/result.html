@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analysis Results</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- The CSS styles are shared with the main page -->
+</head>
+<body>
+    <section class="hero-section">
+        <h1 class="hero-title">Your Resume Analysis</h1>
+        <p class="hero-subtitle">Here's what our AI found in your resume</p>
+    </section>
+
+    <div class="results-container">
+        <div class="results-section">
+            <h3>Key Skills Identified</h3>
+            <p>{{ resume_data.skills | join(", ") }}</p>
+        </div>
+
+        <div class="results-section">
+            <h3>Experience Overview</h3>
+            <p>{{ resume_data.experience }}</p>
+        </div>
+
+        <div class="results-section">
+            <h3>Improvement Suggestions</h3>
+            <ul>
+                {% for feedback_item in resume_data.feedback %}
+                    <li class="feedback-item">{{ feedback_item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <a href="/" class="back-btn">Analyze Another Resume</a>
+    </div>
+</body>
+</html>
